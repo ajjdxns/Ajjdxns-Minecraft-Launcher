@@ -9,11 +9,3 @@ Use python's os module and Microsoft® windows™ writing. So  **we not support 
 #### installing
 
     pass
-
-#### 使用说明
-
-    pass
-
-#### 参与贡献
-
-    None
