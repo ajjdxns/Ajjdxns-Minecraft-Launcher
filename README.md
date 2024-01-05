@@ -2,6 +2,9 @@
 <br>
 
     一个用python写的MC启动器。
+<br>
+
+    注意!!!有["问题","建议","BUG"]请交lssues!!!
 
 <br><br>
 
