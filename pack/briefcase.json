@@ -1,0 +1,28 @@
+{  
+    "app_name": "AML",             // 应用的显示名称  
+    "app_id": "com.aml.ajjdxns",             // 应用的唯一标识符，通常是反向域名  
+    "version": "0.1",                          // 应用的版本号  
+    "briefcase_version": ">=0.3.3",            // 所需的 Briefcase 工具的最低版本  
+    "platforms": "all",         // 目标平台列表，可以是 "all", "ios", "android", "macos", "windows", "linux"  
+    "source": ".",                            // 源代码的目录，相对于 briefcase.json 文件的位置  
+    "requirements": [                          // 应用依赖的 Python 包列表  
+        "toga_core",  
+        "toga_android",  
+        "toga_linux"  
+    ],  
+    "python_requires": ">=3.7",                // 所需的 Python 版本  
+    "entry_points": [                          // 应用的入口点，通常是主模块和主函数  
+        "main:main"  
+    ],  
+    "output": "./dist/myapp.apk",              // 打包后的应用输出路径和文件名  
+    "icon": "./path/to/icon.png",              // 应用图标的文件路径  
+    "orientation": "portrait",                // 应用的默认屏幕方向，可以是 "portrait" 或 "landscape"  
+    "theme": "light",                          // 应用的主题，通常是 "light" 或 "dark"  
+    "include_packages": ["extra_package"],     // 需要额外包含的 Python 包列表  
+    "exclude_packages": ["unwanted_package"],  // 需要排除的 Python 包列表  
+    "include_files": ["path/to/extra/file"],   // 需要额外包含的文件列表  
+    "exclude_files": ["path/to/exclude/file"], // 需要排除的文件列表  
+    "extend_pythonpath": ["path/to/extra/dir"], // 额外添加到 PYTHONPATH 的目录列表  
+    "pre_build": "python preprocess.py",       // 在打包之前运行的命令或脚本  
+    "post_build": "python postprocess.py"      // 在打包之后运行的命令或脚本  
+}
