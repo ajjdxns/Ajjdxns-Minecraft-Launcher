@@ -14,15 +14,15 @@
     "entry_points": [                          // 应用的入口点，通常是主模块和主函数  
         "main:main"  
     ],  
-    "output": "./dist/myapp.apk",              // 打包后的应用输出路径和文件名  
+    "output": "./output/aml.apk",              // 打包后的应用输出路径和文件名  
     "icon": "./path/to/icon.png",              // 应用图标的文件路径  
-    "orientation": "portrait",                // 应用的默认屏幕方向，可以是 "portrait" 或 "landscape"  
+    "orientation": "landscape",                // 应用的默认屏幕方向，可以是 "portrait" 或 "landscape"  
     "theme": "light",                          // 应用的主题，通常是 "light" 或 "dark"  
-    "include_packages": ["extra_package"],     // 需要额外包含的 Python 包列表  
-    "exclude_packages": ["unwanted_package"],  // 需要排除的 Python 包列表  
-    "include_files": ["path/to/extra/file"],   // 需要额外包含的文件列表  
-    "exclude_files": ["path/to/exclude/file"], // 需要排除的文件列表  
-    "extend_pythonpath": ["path/to/extra/dir"], // 额外添加到 PYTHONPATH 的目录列表  
-    "pre_build": "python preprocess.py",       // 在打包之前运行的命令或脚本  
-    "post_build": "python postprocess.py"      // 在打包之后运行的命令或脚本  
+    "include_packages": [""],     // 需要额外包含的 Python 包列表  
+    "exclude_packages": [""],  // 需要排除的 Python 包列表  
+    "include_files": [""],   // 需要额外包含的文件列表  
+    "exclude_files": [""], // 需要排除的文件列表  
+    "extend_pythonpath": [""], // 额外添加到 PYTHONPATH 的目录列表  
+    "pre_build": "",       // 在打包之前运行的命令或脚本  
+    "post_build": "pause"      // 在打包之后运行的命令或脚本  
 }
