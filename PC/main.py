@@ -21,7 +21,30 @@ def main():
         if command == "quit":
             os._exit(1)
         elif command == "version":
-            console.print('Ajjdxns minecraft launcher\nCopyright (C) Ajjdxns studio(电子邮件：wyj121023@163.com,备用地址：ajjdxns@outlook.com)\nver. alpha 0.1\n基于GPL3.0\n我们希望这个\n程序对你有用，但是不保证它真的好用。随程序应该有一\n份GPL3.0协议，如果没有找到，从这里找：https://www.gnu.org/licenses/以下简称AML启动\n器。（可看可不看）\nAML启动器根据GPL3.0协议，允许您进行软件破解、源代码分发以及分发破解版软件。\n但是破解版软件并不属于AML启动器的一部分，向外分发时请不要使用与本产品相近或类似的名字。\n在您分发该项目副本时，请注明该文件的源代码地址和分发平台。\n此外，请您遵守附加条款：\n1.修改后的代码与Ajjdxns studio没有任何关系，我们也不对此负责。\n2.修改后的代码中请注明代码的原作者。\n3.修改后的代码请不要用Ajjdxns(代码作者)的名义宣传。\n4.请让您的软件使用者明白，这个软件是基于Ajjdxns studio的源代码修改的，Ajjdxns studio对其中的BUG概不负责。\n5.如果有涉及到钱的修改版，修改版作者将不能继续使用软件最新版进行修改，同时停止作者对修改版软件中未修改部分的支持。\n')
+            console.print('Ajjdxns minecraft launcher\nCopyright (C) Ajjdxns studio(电子邮件：wyj121023@163.com,备用地址：ajjdxns@outlook.com)\nver. alpha 0.1\n基于GPL3.0\n我们希望这个程序对你有用，但是不保证它真的好用。\n随程序应该有一份GPL3.0协议，如果没有找到，从这里找：https://www.gnu.org/licenses/。\n以下简称AML启动器。\n（可看可不看）\nAML启动器根据GPL3.0协议，允许您进行软件破解、源代码分发以及分发破解版软件。\n但是破解版软件并不属于AML启动器的一部分，向外分发时请不要使用与本产品相近或类似的名字。\n在您分发该项目副本时，请注明该文件的源代码地址和分发平台。\n此外，请您遵守附加条款：\n1.修改后的代码与Ajjdxns studio没有任何关系，我们也不对此负责。\n2.修改后的代码中请注明代码的原作者。\n3.修改后的代码请不要用Ajjdxns(代码作者)的名义宣传。\n4.请让您的软件使用者明白，这个软件是基于Ajjdxns studio的源代码修改的，Ajjdxns studio对其中的BUG概不负责。\n5.如果有涉及到钱的修改版，修改版作者将不能继续使用软件最新版进行修改，同时停止作者对修改版软件中未修改部分的支持。\n')
+        elif command == "license 15":
+            console.print('''  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.''')
+        elif command == "license 3":
+            console.print('''  No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.
+
+  When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.''')
 
 if __name__ == "__main__":
     main()
