@@ -1,3 +1,3 @@
-from rich import print 
+import sys
 from console_start import console
-print(locals())
+console.print("命令行参数：",sys.argv)
