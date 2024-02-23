@@ -5,6 +5,7 @@ Ajjdxns minecraft launcher
 
 import sys
 import os
+from download import *
 from console_start import console
 
 command = ""
@@ -45,6 +46,8 @@ the covered work, and you disclaim any intention to limit operation or
 modification of the work as a means of enforcing, against the work's
 users, your or third parties' legal rights to forbid circumvention of
 technological measures.''')
+        elif command == 'download minecraft':
+            download()
 
 if __name__ == "__main__":
     main()
