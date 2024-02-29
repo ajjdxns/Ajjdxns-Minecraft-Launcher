@@ -69,8 +69,6 @@ modification of the work as a means of enforcing, against the work's
 users, your or third parties' legal rights to forbid circumvention of
 technological measures.''')
         elif command == 'download minecraft':
-            with open(r'minecraft.zip','w') as f:
-                f.write('')
             download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
         elif command == 'start':
             start()
