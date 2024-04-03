@@ -80,7 +80,6 @@ technological measures.''')
                     console.print("输出文件：", file)
                     f.extract(file,"./.minecraft/defaultversion/")  
             
-
         elif command == 'start game':
             start()
 
