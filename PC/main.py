@@ -9,7 +9,11 @@ from console_start import console
 import requests
 import zipfile
 import json
+from selenium import webdriver
 from tqdm import tqdm
+
+
+driver=webdriver.Chrome()
 
 def start():
     pass
@@ -84,6 +88,9 @@ technological measures.''')
             
         elif command == 'start game':
             start()
+
+        elif command == 'login':
+            driver.get("https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf")
 
 if __name__ == "__main__":
     main()
