@@ -7,6 +7,7 @@ import sys
 import os
 from console_start import console
 import requests
+import zipfile
 from tqdm import tqdm
 
 def start():
@@ -40,7 +41,7 @@ def main():
     主要的核心程序
     '''
     while True:
-        command = input(">>>")
+        command = console.input(">>>")
         if command == "quit":
             os._exit(1)
         elif command == "version":
@@ -60,7 +61,6 @@ measure under any applicable law fulfilling obligations under article
 11 of the WIPO copyright treaty adopted on 20 December 1996, or
 similar laws prohibiting or restricting circumvention of such
 measures.
-
   When you convey a covered work, you waive any legal power to forbid
 circumvention of technological measures to the extent such circumvention
 is effected by exercising rights under this License with respect to
@@ -69,9 +69,17 @@ modification of the work as a means of enforcing, against the work's
 users, your or third parties' legal rights to forbid circumvention of
 technological measures.''')
         elif command == 'download minecraft':
-            download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
+            console.print("游戏开始下载...")
             with open(r'minecraft.zip','w') as f:
                 f.write('')
+            download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
+            console.print("主文件下载完成。")
+            console.print('即将开始解压文件至"./.minecraft/defaultversion"文件夹（应该没人会往里面放什么东西吧）。')
+            with zipfile.ZipFile("minecraft.zip",'r') as f:
+                for file in f.namelist():
+                    console.print("输出文件：", file)
+                    f.extract(file,"./.minecraft/defaultversion/")  
+            
 
         elif command == 'start game':
             start()
