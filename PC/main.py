@@ -9,6 +9,9 @@ from console_start import console
 import requests
 from tqdm import tqdm
 
+def start():
+    pass
+  
 def download(url: str, fname: str):
     # 用流stream的方式获取url的数据
     resp = requests.get(url, stream=True)
@@ -66,9 +69,12 @@ modification of the work as a means of enforcing, against the work's
 users, your or third parties' legal rights to forbid circumvention of
 technological measures.''')
         elif command == 'download minecraft':
+            download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
             with open(r'minecraft.zip','w') as f:
                 f.write('')
-            download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
+
+        elif command == 'start game':
+            start()
 
 if __name__ == "__main__":
     main()
