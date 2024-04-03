@@ -90,7 +90,16 @@ technological measures.''')
             start()
 
         elif command == 'login':
+            console.print("开始登录...")
             driver.get("https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf")
+            console.print("请在浏览器中完成登录")
+            console.print("不会操作？请看https://ajjdxns.github.io/Ajjdxns-Minecraft-Launcher/loginhelp")
+            code = console.input("请输入空白页面的code参数：")
+            postjson = json.encoder({"client_id":"00000000402b5328",
+                "code":code,
+                "grant_type":"authorization_code",
+                "redirect_uri":"https://login.live.com/oauth20_desktop.srf",
+                "scope":"service::user.auth.xboxlive.com::MBI_SSL"})
 
 if __name__ == "__main__":
     main()
