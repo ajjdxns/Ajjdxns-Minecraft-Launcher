@@ -18,10 +18,11 @@
 <br><br><br>
 
 ### 安装方法
-直接安装
+将realses文件放入文件夹，然后运行main.py。
 
 ### 使用说明
 根据启动器内说明操作
 
 ### 参与贡献
 1.![](https://avatars.githubusercontent.com/u/95564700?v=4&size=15)[Yang Line](https://github.com/YangLine)
+> 给我这个项目的灵感

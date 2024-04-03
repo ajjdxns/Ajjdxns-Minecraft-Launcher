@@ -8,6 +8,7 @@ import os
 from console_start import console
 import requests
 import zipfile
+import json
 from tqdm import tqdm
 
 def start():
@@ -34,6 +35,7 @@ def download(url: str, fname: str):
 command = ""
 argv = sys.argv
 
+console.print("")
 console.print("Ajjdxns minecraft launcher Copyright (C) 2024 Ajjdxns studio\n本程序没有任何保证，输入“license 15”了解更多。\n这是一个自由软件，欢迎再次分发。输入“license 3”了解详情。\n随程序应该有一份GPL3.0协议，如果没有找到，从这里找：https://www.gnu.org/licenses/。\n使用命令“version”查看更多协议")
 
 def main():
