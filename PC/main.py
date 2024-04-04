@@ -95,11 +95,39 @@ technological measures.''')
             console.print("请在浏览器中完成登录")
             console.print("不会操作？请看https://ajjdxns.github.io/Ajjdxns-Minecraft-Launcher/loginhelp")
             code = console.input("请输入空白页面的code参数：")
-            postjson = json.encoder({"client_id":"00000000402b5328",
+            loginheaders = {"Content-Type":"application/x-www-form-urlencoded"}
+            loginjson = json.encoder({"client_id":"00000000402b5328",
                 "code":code,
                 "grant_type":"authorization_code",
                 "redirect_uri":"https://login.live.com/oauth20_desktop.srf",
                 "scope":"service::user.auth.xboxlive.com::MBI_SSL"})
+            loginget = requests.post("https://login.live.com/oauth20_token.srf",data=loginjson,headers=loginheaders)
+            logingetlist = json.decoder(loginget.text)
+            Xboxheaders = {"Content-Type":"application/json","Accept":"application/json"}
+            Xboxjson = json.encoder({
+                "Properties": {
+                    "AuthMethod": "RPS",
+                    "SiteName": "user.auth.xboxlive.com",
+                    "RpsTicket": "d="+logingetlist["access_token"]
+                },
+                "RelyingParty": "http://auth.xboxlive.com",
+                "TokenType": "JWT"})
+            Xboxget = requests.post("https://user.auth.xboxlive.com/user/authenticate",data=Xboxjson,headers=Xboxheaders)
+            Xboxgetlist = json.decoder(Xboxget.text)
+            Xboxtoken = Xboxgetlist["Token"]
+            XSTSheaders = {"Content-Type":"application/json","Accept":"application/json"}
+            XSTSjson = json.encoder({
+                "Properties": {
+                    "SandboxId": "RETAIL",
+                    "UserTokens": [
+                        Xboxtoken
+                    ]
+                },
+                "RelyingParty": "rp://api.minecraftservices.com/",
+                "TokenType": "JWT"})
+            XSTSget = requests.post("https://xsts.auth.xboxlive.com/xsts/authorize",data=XSTSjson,headers=XSTSheaders)
+            XSTSgetlist = json.decoder(XSTSget.text)
+            XSTStoken = XSTSgetlist["Token"]
 
 if __name__ == "__main__":
     main()
