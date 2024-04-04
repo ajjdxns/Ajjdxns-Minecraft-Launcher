@@ -9,11 +9,7 @@ from console_start import console
 import requests
 import zipfile
 import json
-from selenium import webdriver
 from tqdm import tqdm
-
-
-driver=webdriver.Chrome()
 
 def start():
     pass
@@ -91,7 +87,7 @@ technological measures.''')
 
         elif command == 'login':
             console.print("开始登录...")
-            driver.get("https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf")
+            console.print("请用浏览器打开：https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf")
             console.print("请在浏览器中完成登录")
             console.print("不会操作？请看https://ajjdxns.github.io/Ajjdxns-Minecraft-Launcher/loginhelp")
             code = console.input("请输入空白页面的code参数：")
