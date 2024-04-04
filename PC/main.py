@@ -101,7 +101,7 @@ technological measures.''')
                 "grant_type":"authorization_code",
                 "redirect_uri":"https://login.live.com/oauth20_desktop.srf",
                 "scope":"service::user.auth.xboxlive.com::MBI_SSL"})
-            loginget = requests.post("https://login.live.com/oauth20_token.srf",data=loginjson,headers=loginheaders)
+            loginget = requests.post("https://login.live.com/oauth20_token.srf",data = loginjson,headers = loginheaders)
             logingetlist = json.decoder(loginget.text)
             Xboxheaders = {"Content-Type":"application/json","Accept":"application/json"}
             Xboxjson = json.encoder({
@@ -112,9 +112,11 @@ technological measures.''')
                 },
                 "RelyingParty": "http://auth.xboxlive.com",
                 "TokenType": "JWT"})
-            Xboxget = requests.post("https://user.auth.xboxlive.com/user/authenticate",data=Xboxjson,headers=Xboxheaders)
+            Xboxget = requests.post("https://user.auth.xboxlive.com/user/authenticate",data = Xboxjson,headers = Xboxheaders)
             Xboxgetlist = json.decoder(Xboxget.text)
             Xboxtoken = Xboxgetlist["Token"]
+            console.print(Xboxget.text)
+            Xboxuhs = console.input('请输入"hus"后面的内容:')
             XSTSheaders = {"Content-Type":"application/json","Accept":"application/json"}
             XSTSjson = json.encoder({
                 "Properties": {
@@ -125,9 +127,13 @@ technological measures.''')
                 },
                 "RelyingParty": "rp://api.minecraftservices.com/",
                 "TokenType": "JWT"})
-            XSTSget = requests.post("https://xsts.auth.xboxlive.com/xsts/authorize",data=XSTSjson,headers=XSTSheaders)
+            XSTSget = requests.post("https://xsts.auth.xboxlive.com/xsts/authorize",data = XSTSjson,headers = XSTSheaders)
             XSTSgetlist = json.decoder(XSTSget.text)
             XSTStoken = XSTSgetlist["Token"]
+            MCjson = json.encoder({"identityToken": "XBL3.0 x="+ Xboxuhs + ";" + XSTStoken})
+            MCget = requests.post("https://api.minecraftservices.com/authentication/login_with_xbox",data=MCjson)
+            MCgetlist = json.decoder(MCget.text)
+            MCtoken = MCgetlist["access_token"]
 
 if __name__ == "__main__":
     main()
