@@ -11,8 +11,18 @@ import zipfile
 import json
 from tqdm import tqdm
 
+heads = '{"Accept":"application/json","Accept-Language":"zh-CN"}'
+defaultheads = json.loads(heads)
+
 def start():
     pass
+
+def debug(func):
+    def wrapper():
+        console.print("[DEBUG]go run {}()".format(func.__name__))
+        console.print("[DEBUG]go run {}()".format(func.__name__))
+        return func()
+    return wrapper
   
 def download(url: str, fname: str):
     # 用流stream的方式获取url的数据
@@ -74,7 +84,7 @@ technological measures.''')
             console.print("游戏开始下载...")
             with open(r'minecraft.zip','w') as f:
                 f.write('')
-            download('https://ajjdxns.rainyun.ink/download/default.zip','minecraft.zip')
+            download('https://ajjdxns.github.io/download/default.zip','minecraft.zip')
             console.print("主文件下载完成。")
             console.print('即将开始解压文件至"./.minecraft/defaultversion"文件夹（应该没人会往里面放什么东西吧）。')
             with zipfile.ZipFile("minecraft.zip",'r') as f:
@@ -87,9 +97,23 @@ technological measures.''')
 
         elif command == 'login':
             console.print("开始登录...")
-            loginlink = console.input("请输入登录api地址：")
-            loginun = console.input("请输入用户名：")
-            loginpw = console.input("请输入密码：")
+            LoginLink = "https://littleskin.cn"
+            console.print("皮肤站信息：")
+            RequestApi = requests.post(LoginLink+"/api", headers=defaultheads)
+            SkinApi = json.loads(RequestApi.text)
+            console.print("服务器名称："+SkinApi["site_name"])
+            console.print(SkinApi["copyright"])
+            usermail = console.input("请输入邮箱：")
+            password = console.input("请输入密码：")
+            LoginData = {
+                "email":usermail,
+                "password":password
+            }
+            LoginGet = requests.post(LoginLink+"/api/auth/login",data=json.dumps(LoginData),headers=defaultheads)
+            LoginGetData = json.loads(LoginGet.text)
+            console.print(LoginGetData)
+            JWT = LoginGetData["token"]
+            
 
 if __name__ == "__main__":
     main()
