@@ -87,49 +87,9 @@ technological measures.''')
 
         elif command == 'login':
             console.print("开始登录...")
-            console.print("请用浏览器打开：https://login.live.com/oauth20_authorize.srf?client_id=00000000402b5328&response_type=code&scope=service%3A%3Auser.auth.xboxlive.com%3A%3AMBI_SSL&redirect_uri=https%3A%2F%2Flogin.live.com%2Foauth20_desktop.srf")
-            console.print("请在浏览器中完成登录")
-            console.print("不会操作？请看https://ajjdxns.github.io/Ajjdxns-Minecraft-Launcher/loginhelp")
-            code = console.input("请输入空白页面的code参数：")
-            loginheaders = {"Content-Type":"application/x-www-form-urlencoded"}
-            loginjson = json.encoder({"client_id":"00000000402b5328",
-                "code":code,
-                "grant_type":"authorization_code",
-                "redirect_uri":"https://login.live.com/oauth20_desktop.srf",
-                "scope":"service::user.auth.xboxlive.com::MBI_SSL"})
-            loginget = requests.post("https://login.live.com/oauth20_token.srf",data = loginjson,headers = loginheaders)
-            logingetlist = json.decoder(loginget.text)
-            Xboxheaders = {"Content-Type":"application/json","Accept":"application/json"}
-            Xboxjson = json.encoder({
-                "Properties": {
-                    "AuthMethod": "RPS",
-                    "SiteName": "user.auth.xboxlive.com",
-                    "RpsTicket": "d="+logingetlist["access_token"]
-                },
-                "RelyingParty": "http://auth.xboxlive.com",
-                "TokenType": "JWT"})
-            Xboxget = requests.post("https://user.auth.xboxlive.com/user/authenticate",data = Xboxjson,headers = Xboxheaders)
-            Xboxgetlist = json.decoder(Xboxget.text)
-            Xboxtoken = Xboxgetlist["Token"]
-            console.print(Xboxget.text)
-            Xboxuhs = console.input('请输入"hus"后面的内容:')
-            XSTSheaders = {"Content-Type":"application/json","Accept":"application/json"}
-            XSTSjson = json.encoder({
-                "Properties": {
-                    "SandboxId": "RETAIL",
-                    "UserTokens": [
-                        Xboxtoken
-                    ]
-                },
-                "RelyingParty": "rp://api.minecraftservices.com/",
-                "TokenType": "JWT"})
-            XSTSget = requests.post("https://xsts.auth.xboxlive.com/xsts/authorize",data = XSTSjson,headers = XSTSheaders)
-            XSTSgetlist = json.decoder(XSTSget.text)
-            XSTStoken = XSTSgetlist["Token"]
-            MCjson = json.encoder({"identityToken": "XBL3.0 x="+ Xboxuhs + ";" + XSTStoken})
-            MCget = requests.post("https://api.minecraftservices.com/authentication/login_with_xbox",data=MCjson)
-            MCgetlist = json.decoder(MCget.text)
-            MCtoken = MCgetlist["access_token"]
+            loginlink = console.input("请输入登录api地址：")
+            loginun = console.input("请输入用户名：")
+            loginpw = console.input("请输入密码：")
 
 if __name__ == "__main__":
     main()
