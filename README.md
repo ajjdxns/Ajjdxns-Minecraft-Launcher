@@ -24,5 +24,5 @@
 根据启动器内说明操作
 
 ### 参与贡献
-1.![](https://avatars.githubusercontent.com/u/95564700?v=4&size=15)[Yang Line](https://github.com/YangLine)
+1.![Yang Line](https://avatars.githubusercontent.com/u/95564700?v=4&size=15 "Yang Line")[Yang Line](https://github.com/YangLine "Yang Line")
 > 给我这个项目的灵感
