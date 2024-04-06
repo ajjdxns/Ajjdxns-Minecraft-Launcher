@@ -5,6 +5,7 @@ Ajjdxns minecraft launcher
 
 import sys
 import os
+import time
 from console_start import console
 import requests
 import zipfile
@@ -96,6 +97,7 @@ technological measures.''')
 
         elif command == 'login':
             console.print("开始登录...")
+            time.sleep(1)
             
 
 if __name__ == "__main__":
