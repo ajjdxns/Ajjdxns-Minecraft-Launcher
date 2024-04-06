@@ -11,8 +11,7 @@ import zipfile
 import json
 from tqdm import tqdm
 
-heads = '{"Accept":"application/json","Accept-Language":"zh-CN"}'
-defaultheads = json.loads(heads)
+heads = {"Accept":"application/json","Accept-Language":"zh-CN"}
 
 def start():
     pass
@@ -97,22 +96,6 @@ technological measures.''')
 
         elif command == 'login':
             console.print("开始登录...")
-            LoginLink = "https://littleskin.cn"
-            console.print("皮肤站信息：")
-            RequestApi = requests.post(LoginLink+"/api", headers=defaultheads)
-            SkinApi = json.loads(RequestApi.text)
-            console.print("服务器名称："+SkinApi["site_name"])
-            console.print(SkinApi["copyright"])
-            usermail = console.input("请输入邮箱：")
-            password = console.input("请输入密码：")
-            LoginData = {
-                "email":usermail,
-                "password":password
-            }
-            LoginGet = requests.post(LoginLink+"/api/auth/login",data=json.dumps(LoginData),headers=defaultheads)
-            LoginGetData = json.loads(LoginGet.text)
-            console.print(LoginGetData)
-            JWT = LoginGetData["token"]
             
 
 if __name__ == "__main__":
